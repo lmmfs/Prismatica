@@ -12,6 +12,8 @@ echo "Building the engine..."
 defines="-D_DEBUG -DKEXPORT"
 compilerFlags=" -Wall -shared -fPIC"
 linkerFlags=" -ldl -lglfw"
-g++ $compilerFlags -o "../$BIN_DIR/lib$ENGINE_DIR.so" src/*.cpp $defines $linkerFlags
+cppFiles=$(find src -type f -name "*.cpp")
+cFiles=$(find src -type f -name "*.c")
+g++ $compilerFlags -o "../$BIN_DIR/lib$ENGINE_DIR.so" $cppFiles $cFiles $defines $linkerFlags
 
 echo "Engine build complete!"

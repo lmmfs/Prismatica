@@ -13,7 +13,8 @@ defines="-D_DEBUG -DKIMPORT"
 compilerFlags=" -Wall"
 linkerFlags=" -L../$BIN_DIR -lengine -Wl,-rpath,."
 includeFlags="-I../"$ENGINE_DIR"/src"
-g++ $compilerFlags -o "../$BIN_DIR/sandbox" $includeFlags src/*.cpp $linkerFlags
+cppFiles=$(find src -type f -name "*.cpp")
+g++ $compilerFlags -o "../$BIN_DIR/sandbox" $includeFlags $cppFiles $linkerFlags
 
 
 echo "SandBox build complete!"
